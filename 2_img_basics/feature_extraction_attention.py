@@ -15,7 +15,7 @@ if __name__ == '__main__':
                   [ 0.0024, -0.0018,  0.0002,  0.0023,  0.0017,  0.0021, -0.0017,  0.0016]])
     features = np.matmul(img, w)
 
-    # Attention計算用の特徴を画像から抽出
+    # Attention計算用のクエリを画像から抽出
     feature_white = features[50, 50]
     feature_pink = features[200, 200]
 
