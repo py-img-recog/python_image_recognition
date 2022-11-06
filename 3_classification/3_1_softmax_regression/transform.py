@@ -4,7 +4,7 @@ import torchvision
 
 # 画像整形用関数
 def transform(img, channel_mean=None, channel_std=None):
-    # PIL to numpy array, PyTorchでの処理用に単精度少数を使用
+    # PIL to numpy array, PyTorchでの処理用に単精度小数を使用
     img = np.asarray(img, dtype='float32')
 
     # 画像を平坦化
