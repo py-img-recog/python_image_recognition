@@ -35,9 +35,12 @@ if __name__ == '__main__':
     kernel_h, kernel_v, kernel_lap = generate_kernel()
 
     # 畳み込み演算
-    img_h_diff = signal.convolve2d(img, kernel_h, boundary='symm', mode='same')
-    img_v_diff = signal.convolve2d(img, kernel_v, boundary='symm', mode='same')
-    img_lap = signal.convolve2d(img, kernel_lap, boundary='symm', mode='same')
+    img_h_diff = signal.convolve2d(img, kernel_h, 
+                                   boundary='symm', mode='same')
+    img_v_diff = signal.convolve2d(img, kernel_v, 
+                                   boundary='symm', mode='same')
+    img_lap = signal.convolve2d(img, kernel_lap, 
+                                boundary='symm', mode='same')
 
     # 微分値の絶対値を計算
     img_h_diff = np.absolute(img_h_diff)
