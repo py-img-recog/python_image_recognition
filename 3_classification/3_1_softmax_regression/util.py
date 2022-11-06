@@ -40,7 +40,7 @@ if __name__ == '__main__':
     test_dataset = torchvision.datasets.CIFAR10(root='data', train=False, download=True)
 
     # 学習セットのうち、検証セットに使う割合
-    val_ratio = .2
+    val_ratio = 0.2
 
     # Subset samplerの生成
     val_sampler, train_sampler = generate_subset_sampler(train_dataset, val_ratio)
