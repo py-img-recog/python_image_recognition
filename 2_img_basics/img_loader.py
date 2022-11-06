@@ -15,10 +15,12 @@ if __name__ == '__main__':
     display(img_gray)
 
     # グレースケール画像の配列サイズを表示
-    print('Array size of the grayscale image: {}'.format(np.array(img_gray).shape))
+    print('Array size of the grayscale image: {}'.
+            format(np.array(img_gray).shape))
 
     # グレースケール画像の原点の画素値を表示
-    print('Pixel value of the grayscale image at (0, 0): {}'.format(img_gray.getpixel((0, 0))))
+    print('Pixel value of the grayscale image at (0, 0): {}'.
+            format(img_gray.getpixel((0, 0))))
 
     # カラー画像の読み込み
     img_color = Image.open('drive/MyDrive/data/apple.jpg')
@@ -27,7 +29,9 @@ if __name__ == '__main__':
     display(img_color)
 
     # カラー画像の配列サイズを表示
-    print('Array size of the color image: {}'.format(np.array(img_color).shape))
+    print('Array size of the color image: {}'.
+            format(np.array(img_color).shape))
 
     # カラー画像の原点の画素値を表示
-    print('Pixel value of the color image at (0, 0): {}'.format(img_color.getpixel((0, 0))))
+    print('Pixel value of the color image at (0, 0): {}'.
+            format(img_color.getpixel((0, 0))))
