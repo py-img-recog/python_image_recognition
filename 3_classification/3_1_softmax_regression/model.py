@@ -9,7 +9,9 @@ class SoftmaxRegression:
     def __init__(self, input_dim, num_classes):
         # パラメータの初期化
         self.weight = np.random.uniform(
-            low=-1 / input_dim ** .5, high=1 / input_dim ** .5, size=(input_dim, num_classes))
+            low=-1 / input_dim ** .5, 
+            high=1 / input_dim ** .5,
+            size=(input_dim, num_classes))
         self.bias = np.zeros(num_classes)
 
     # 内部用Softmax関数
