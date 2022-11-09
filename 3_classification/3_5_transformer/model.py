@@ -128,7 +128,7 @@ class VisionTransformer(nn.Module):
         # パッチ特徴量次元はpatch_size * patch_size * 3 (RGBチャネル)
         dim_patch = 3 * patch_size ** 2
 
-        # Transformerエンコーダに乳ロyくする前に
+        # Transformerエンコーダに入力する前に
         # パッチ特徴量の次元を変換する全結合
         self.patch_embed = nn.Linear(dim_patch, dim_hidden)
 
@@ -165,8 +165,7 @@ class VisionTransformer(nn.Module):
 
         # 高さ軸と幅軸をパッチ数 * パッチの大きさに分解し、
         # バッチサイズ * チャネル * パッチの行数 * パッチの大きさ * 
-        #                           * パッチの列数 *  パッチの大きさ
-        # にする
+        #            * パッチの列数 *  パッチの大きさにする
         x = x.view(bs, c, h // self.patch_size, self.patch_size,
                    w // self.patch_size, self.patch_size)
 
