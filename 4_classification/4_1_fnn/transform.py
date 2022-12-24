@@ -3,7 +3,7 @@ import numpy as np
 
 
 '''
-img         : 整形対称の画像
+img         : 整形対象の画像
 channel_mean: 各次元のデータセット全体の平均, [入力次元]
 channel_std : 各次元のデータセット全体の標準偏差, [入力次元]
 '''
