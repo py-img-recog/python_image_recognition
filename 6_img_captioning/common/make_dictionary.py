@@ -3,9 +3,9 @@ from pycocotools.coco import COCO
 from collections import Counter
 
 # データの保存先
-fp_train_caption = '../data/coco2014/captions_val2014.json'
-fp_word_to_id = './vocab/word_to_id.pkl'
-fp_id_to_word = './vocab/id_to_word.pkl'
+fp_train_caption = '/content/drive/MyDrive/data/coco2014/captions_val2014.json'
+fp_word_to_id = '/content/drive/MyDrive/6_image_captioning/vocab/word_to_id.pkl'
+fp_id_to_word = '/content/drive/MyDrive/6_image_captioning/vocab/id_to_word.pkl'
 
 # キャプションを読み込み
 coco = COCO(fp_train_caption)
