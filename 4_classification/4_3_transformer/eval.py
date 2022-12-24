@@ -6,8 +6,8 @@ from torch.utils.data import Dataset
 
 
 '''
-data_loader: 評価用の読み込むデータローダ
-model      : 特徴量抽出に使うモデル
+data_loader: 評価に使うデータを読み込むデータローダ
+model      : 評価対象のモデル
 loss_func  : 目的関数
 '''
 def evaluate(data_loader: Dataset, model: nn.Module,
