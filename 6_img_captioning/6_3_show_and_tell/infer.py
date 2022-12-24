@@ -4,10 +4,10 @@ import glob
 import os
 import matplotlib.pyplot as plt
 from PIL import Image
-from show_and_tell.model import EncoderCNN
-from show_and_tell.model import DecoderRNN
-from show_and_tell.config import Config
 from common.util import COCO_loader
+from model import EncoderCNN
+from model import DecoderRNN
+from config import Config
 
 ''' 画像読み込み
 image_file:   画像ファイル
@@ -21,9 +21,9 @@ def load_image(image_file: str, transform=None):
     return image
 
 ''' 
-Show and Tellの推論
+画像キャプショニングの推論
 '''
-def infer(fp_encoder: str, fp_decoder: str):
+def infer(fp_encoder: str, fp_decoder: str, fp_infer_image_dir: str):
     
     # GPUを利用
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -55,7 +55,7 @@ def infer(fp_encoder: str, fp_decoder: str):
 
     # fp_infer_image_dir内の画像を対象としてキャプショニング実行
     for image_file in sorted(
-        glob.glob(os.path.join(cfg.fp_infer_image_dir, "*.jpg"))):
+        glob.glob(os.path.join(fp_infer_image_dir, "*.jpg"))):
 
         # 画像読み込み
         image = load_image(image_file, transform).to(device)
@@ -94,7 +94,8 @@ def infer(fp_encoder: str, fp_decoder: str):
 '''
 if __name__ == '__main__':
     # 画像キャプショニング推論
-    fp_encoder = 'model/show_and_tell_encoder.pth'
-    fp_decoder = 'model/show_and_tell_decoder.pth'
-    
-    infer(fp_encoder, fp_decoder)
+    fp_encoder = '/content/drive/MyDrive/6_image_captioning/model/6-3_encoder_best.pth'
+    fp_decoder = '/content/drive/MyDrive/6_image_captioning/model/6-3_decoder_best.pth'
+    fp_infer_image_dir = '/content/drive/MyDrive/data/image_captioning/'    
+
+    infer(fp_encoder, fp_decoder, fp_infer_image_dir)

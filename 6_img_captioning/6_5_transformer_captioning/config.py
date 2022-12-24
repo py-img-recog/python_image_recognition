@@ -19,11 +19,11 @@ class Config(object):
         self.max_seg_len = 30                    # 最大系列長
         self.learning_rate = 0.001   # 学習率
         self.batch_size = 30        # ミニバッチの数
-        self.num_epochs = 30     # エポック
+        self.num_epochs = 2     # エポック
         
         # グローバル変数
         self.fp_train_cap = '/content/drive/MyDrive/data/coco2014/captions_val2014.json'
-        self.fp_train_image_dir = 'val2014'
+        self.fp_train_image_dir = '/content/val2014/'
         self.fp_word_to_id = '/content/drive/MyDrive/6_image_captioning/vocab/word_to_id.pkl'
         self.fp_id_to_word = '/content/drive/MyDrive/6_image_captioning/vocab/id_to_word.pkl'
         self.fp_model_dir = '/content/drive/MyDrive/6_image_captioning/model'

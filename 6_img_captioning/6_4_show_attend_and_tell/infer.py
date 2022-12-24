@@ -3,13 +3,12 @@ import torchvision.transforms as transforms
 import glob
 import os
 import matplotlib.pyplot as plt
-import skimage.transform
 import matplotlib.cm as cm
+import skimage.transform
 from PIL import Image
-from show_attend_and_tell.model import EncoderCNN
-from show_attend_and_tell.model import DecoderWithAttention
-from show_attend_and_tell.config import Config
-from common.util import COCO_loader
+from model import EncoderCNN
+from model import DecoderWithAttention
+from config import Config
 
 ''' 画像読み込み
 image_file:   画像ファイル
@@ -110,3 +109,13 @@ def infer(fp_encoder: str, fp_decoder: str, fp_infer_image_dir: str):
         with open(gen_sentence_out, 'w') as f:
             print("{}".format(sentence), file=f)
 
+''' 
+推論処理
+'''
+if __name__ == '__main__':
+    # 画像キャプショニング推論
+    fp_encoder = '/content/drive/MyDrive/6_image_captioning/model/6-4_encoder_best.pth'
+    fp_decoder = '/content/drive/MyDrive/6_image_captioning/model/6-4_decoder_best.pth'
+    fp_infer_image_dir = '/content/drive/MyDrive/data/image_captioning/'    
+
+    infer(fp_encoder, fp_decoder, fp_infer_image_dir)

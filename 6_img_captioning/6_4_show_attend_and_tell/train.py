@@ -7,9 +7,12 @@ from torch import nn
 from torch.nn.utils.rnn import pack_padded_sequence
 from tqdm import tqdm
 from torch.utils.data.dataset import Subset
-from show_attend_and_tell.model import EncoderCNN
-from show_attend_and_tell.model import DecoderWithAttention
-from show_attend_and_tell.config import Config
+from model import EncoderCNN
+from model import DecoderWithAttention
+from config import Config
+
+import sys
+sys.path.append('..')
 from common.util import COCO_loader
 
 '''

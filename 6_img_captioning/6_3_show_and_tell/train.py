@@ -7,9 +7,12 @@ from torch import nn
 from torch.nn.utils.rnn import pack_padded_sequence
 from tqdm import tqdm
 from torch.utils.data.dataset import Subset
-from show_and_tell.model import EncoderCNN
-from show_and_tell.model import DecoderRNN
-from show_and_tell.config import Config
+from model import EncoderCNN
+from model import DecoderRNN
+from config import Config
+
+import sys
+sys.path.append('..')
 from common.util import COCO_loader
 
 '''
@@ -51,13 +54,14 @@ def train():
     
     # 学習経過の書き込み
     now = datetime.datetime.now()
-    fp_train_loss_out = '{}/6-1_train_loss_{}.csv'\
+    fp_train_loss_out = '{}/6-3_train_loss_{}.csv'\
         .format(cfg.fp_model_dir, now.strftime('%Y%m%d_%H%M%S'))
-    fp_val_loss_out = '{}/6-1_val_loss_{}.csv'\
+    fp_val_loss_out = '{}/6-3_val_loss_{}.csv'\
         .format(cfg.fp_model_dir, now.strftime('%Y%m%d_%H%M%S'))
 
     # 学習
     print("学習開始")
+    val_loss_best = float('inf')
     for epoch in range(cfg.num_epochs):
         with tqdm(train_loader) as pbar:
             pbar.set_description("[Train epoch %d]" % (epoch + 1))
@@ -82,12 +86,12 @@ def train():
                                                batch_first=True)[0]
                 loss = criterion(outputs, targets)
 
-                # backward
+                # 誤差逆伝播
                 optimizer.zero_grad()
                 loss.backward()
                 optimizer.step()
 
-                # Training Lossをログに書き込み
+                # 学習時の損失をログに書き込み
                 train_losses.append(loss.item())
                 with open(fp_train_loss_out, 'a') as f:
                     print("{},{}".format(epoch, loss.item()), file=f)
@@ -128,17 +132,18 @@ def train():
 
         # Loss 表示
         print("Validation loss: {}".format(np.average(val_losses)))
-
-        # モデル保存
-        if (epoch % 10) == 0 or ((epoch+1) == cfg.num_epochs):
+        
+        # より良い検証結果が得られた場合、モデルを保存
+        if val_loss < val_loss_best:
+            val_loss_best = val_loss
 
             # エンコーダモデルを保存
-            fp_encoder = '{}/6-1_encoder-epoch{:02d}-loss{:.0f}.pth'.format(cfg.fp_model_dir, epoch+1, val_loss.item()*100)
+            fp_encoder = '{}/6-3_encoder_best.pth'.format(cfg.fp_model_dir)
             torch.save(encoder.to('cpu').state_dict(), fp_encoder)
             encoder.to(device)
 
             # デコーダモデルを保存
-            fp_decoder = '{}/6-1_decoder-epoch{:02d}-loss{:.0f}.pth'.format(cfg.fp_model_dir, epoch+1, val_loss.item()*100)
+            fp_decoder = '{}/6-3_decoder_best.pth'.format(cfg.fp_model_dir)
             torch.save(decoder.to('cpu').state_dict(), fp_decoder)
             decoder.to(device)
     

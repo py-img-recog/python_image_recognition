@@ -8,10 +8,12 @@ from torch.nn.utils.rnn import pack_padded_sequence
 from tqdm import tqdm
 from torch.utils.data.dataset import Subset
 from timm.scheduler import CosineLRScheduler
-from transformer_captioning.model import EncoderCNN
-from transformer_captioning.model import CaptioningTransformer
-from transformer_captioning.model import transformer_temporal_softmax_loss
-from transformer_captioning.config import Config
+from model import EncoderCNN
+from model import CaptioningTransformer
+from config import Config
+
+import sys
+sys.path.append('..')
 from common.util import COCO_loader
 
 '''
