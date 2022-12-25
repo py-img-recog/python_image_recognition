@@ -17,8 +17,8 @@ class RandomHorizontalFlip:
 
     '''
     無作為に画像を水平反転する関数
-    img  : 水平反転する画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : 水平反転する画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: Image, target: dict):
         if random.random() < self.prob:
@@ -48,8 +48,8 @@ class RandomSizeCrop:
 
     '''
     無作為に画像を切り抜く関数
-    img  : 切り抜きをする画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : 切り抜きをする画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: Image, target: dict):
         width, height = img.size
@@ -122,8 +122,8 @@ class RandomResize:
 
     '''
     無作為に画像をリサイズする関数
-    img  : リサイズする画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : リサイズする画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: Image, target: dict):
         # 短辺の長さを候補の中から無作為に抽出
@@ -157,8 +157,8 @@ class RandomResize:
 class ToTensor:
     '''
     PIL画像をテンソルに変換する関数
-    img  : テンソルに変換する画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : テンソルに変換する画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: Image, target: dict):
         img = F.to_tensor(img)
@@ -178,8 +178,8 @@ class Normalize:
 
     '''
     画像を標準化する関数
-    img  : 標準化する画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : 標準化する画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: torch.Tensor, target: dict):
         img = F.normalize(img, mean=self.mean, std=self.std)
@@ -197,8 +197,8 @@ class Compose:
 
     '''
     データ整形・拡張を連続して適用する関数
-    img  : データ整形・拡張する画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : データ整形・拡張する画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: Image, target: dict):
         for transform in self.transforms:
@@ -222,8 +222,8 @@ class RandomSelect:
 
     '''
     データ拡張を無作為に選択して適用する関数
-    img  : データ整形・拡張する画像
-    label: 物体検出用のラベルを持つ辞書
+    img   : データ整形・拡張する画像
+    target: 物体検出用のラベルを持つ辞書
     '''
     def __call__(self, img: Image, target: dict):
         if random.random() < self.prob:
