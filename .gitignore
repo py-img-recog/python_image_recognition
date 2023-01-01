@@ -1,1 +1,5 @@
 __pycache__
+data/coco2014/val2014.zip
+data/coco2014/captions_val2014.json
+*.csv
+*.txt
