@@ -53,7 +53,7 @@ class CocoDetection(torchvision.datasets.CocoDetection):
                              dtype=torch.float32)
 
         # 矩形が0個のとき、boxes.shape == [0]となってしまうため、
-        # 第1軸に4を追加して軸数と第2軸の次元数を合わせる
+        # 第1軸に4を追加して軸数と第2軸の次元を合わせる
         if boxes.shape[0] == 0:
             boxes = torch.zeros((0, 4))
 
@@ -61,7 +61,7 @@ class CocoDetection(torchvision.datasets.CocoDetection):
         # xmin, ymin, width, height -> xmin, ymin, xmax, ymax
         boxes[:, 2:] += boxes[:, :2]
 
-        # 矩形が画像領域内に収まるようにクランプ
+        # 矩形が画像領域内に収まるように値をクリップ
         boxes[:, ::2] = boxes[:, ::2].clamp(min=0, max=width)
         boxes[:, 1::2] = boxes[:, 1::2].clamp(min=0, max=height)
 

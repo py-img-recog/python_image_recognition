@@ -6,6 +6,7 @@ import torchvision
 
 
 '''
+データセットを分割するための2つの排反なインデックス集合を生成する関数
 dataset    : 分割対称のデータセット
 ratio      : 1つ目のセットに含めるデータ量の割合
 random_seed: 分割結果を不変にするためのシード
@@ -59,6 +60,7 @@ def calc_iou(boxes1: torch.Tensor, boxes2: torch.Tensor):
     # 第1軸をunsqueezeし、ブロードキャストを利用することで
     # [矩形数, 1, 2] と[矩形数, 2]の演算結果が
     # [boxes1の矩形数, boxes2の矩形数, 2] となる
+    
     # 積集合の左上の座標を取得
     intersect_left_top = torch.maximum(
         boxes1[:, :2].unsqueeze(1), boxes2[:, :2])
