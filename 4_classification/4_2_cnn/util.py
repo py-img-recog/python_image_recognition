@@ -8,6 +8,7 @@ from torch.utils.data import Dataset
 
 
 '''
+データセットを分割するための2つの排反なインデックス集合を生成する関数
 dataset    : 分割対象のデータセット
 ratio      : 1つ目のセットに含めるデータ量の割合
 random_seed: 分割結果を不変にするためのシード
