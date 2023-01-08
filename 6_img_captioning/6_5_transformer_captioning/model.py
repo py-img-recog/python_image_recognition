@@ -13,7 +13,7 @@ class CNNEncoder(nn.Module):
 
         # ImageNetで事前学習された
         # ResNet152モデルをバックボーンネットワークとする
-        resnet = models.resnet152(weights="IMAGENET1K_V2") 
+        resnet = models.resnet152(weights="IMAGENET1K_V2")
 
         # 特徴抽出器として使うため全結合層を削除
         modules = list(resnet.children())[:-1]
