@@ -1,0 +1,2 @@
+detr.pth filter=lfs diff=lfs merge=lfs -text
+retinanet.pth filter=lfs diff=lfs merge=lfs -text
