@@ -5,3 +5,13 @@ data/coco2014/captions_val2014.json
 *.txt
 6_img_captioning/model/id_to_word.pkl
 6_img_captioning/model/word_to_id.pkl
+6_img_captioning/model/6-3_decoder_best.pth
+6_img_captioning/model/6-3_encoder_best.pth
+6_img_captioning/model/6-4_decoder_best.pth
+6_img_captioning/model/6-4_encoder_best.pth
+6_img_captioning/model/6-3_decoder_best.pth
+6_img_captioning/model/6-3_encoder_best.pth
+6_img_captioning/model/6-4_decoder_best.pth
+6_img_captioning/model/6-4_encoder_best.pth
+6_img_captioning/model/6-5_decoder_best.pth
+6_img_captioning/model/6-5_encoder_best.pth
