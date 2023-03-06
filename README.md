@@ -7,9 +7,11 @@
 
 <img src="https://user-images.githubusercontent.com/55578738/222943631-e4b3e5d4-e856-4c05-aaa9-3ee26ce5e804.jpg" width=300>
 
-本リポジトリではインプレス社より発売されている[田村 雅人](https://tamtamz.github.io/ja/)・[中村 克行](https://scholar.google.com/citations?user=ZIxQ5zAAAAAJ&hl=en) 著の機械学習実践シリーズ「**[Pythonで学ぶ画像認識](https://book.impress.co.jp/books/1122101074)**」で扱うソースコードやデータ、学習済みパラメータを管理しています。ソースコードはJupyterノートブックにまとめられており、Google Colabで実行されることを想定しています。ソースコードの解説は書籍内に記載されており、本リポジトリのソースコードは補助教材となっています。
+本リポジトリではインプレス社より出版予定の[田村 雅人](https://tamtamz.github.io/ja/)・[中村 克行](https://scholar.google.com/citations?user=ZIxQ5zAAAAAJ&hl=en) 著 機械学習実践シリーズ「**[Pythonで学ぶ画像認識](https://book.impress.co.jp/books/1122101074)**」（3/22発売予定）で扱うソースコードやデータ、学習済みパラメータを管理しています。ソースコードはJupyterノートブックにまとめられており、Google Colabで実行されることを想定しています。ソースコードの解説は書籍内に記載されており、本リポジトリのソースコードは補助教材となっています。
 
 ## 書籍の内容
+
+書籍は以下のような構成になります。Jupyterノートブックの補助教材がある節には <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/> のバッジをつけています。バッジをクリックすると該当するノートブックをColabで開けます。ただし、この方法でノートブックを開いて画像やラベルデータの読み込みを行う処理を実行した場合、該当するデータがColab上にないためエラーが発生します。ノートブックの処理を実行したい場合には書籍の第1.4節で解説されている環境構築を行って実行してください。
 
 - **第1章 画像認識とは？**
 	- 第1節 画像認識の概要
