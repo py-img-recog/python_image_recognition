@@ -7,7 +7,7 @@
 
 <img src="https://user-images.githubusercontent.com/55578738/222943631-e4b3e5d4-e856-4c05-aaa9-3ee26ce5e804.jpg" width=300>
 
-本リポジトリではインプレス社より出版予定の[田村 雅人](https://tamtamz.github.io/ja/)・[中村 克行](https://scholar.google.com/citations?user=ZIxQ5zAAAAAJ&hl=en) 著 機械学習実践シリーズ「**[Pythonで学ぶ画像認識](https://book.impress.co.jp/books/1122101074)**」（3/22発売予定）で扱うソースコードやデータ、学習済みパラメータを管理しています。ソースコードはJupyterノートブックにまとめられており、Google Colabで実行されることを想定しています。ソースコードの解説は書籍内に記載されており、本リポジトリのソースコードは補助教材となっています。
+本リポジトリではインプレス社より出版されている[田村 雅人](https://tamtamz.github.io/ja/)・[中村 克行](https://scholar.google.com/citations?user=ZIxQ5zAAAAAJ&hl=en) 著の機械学習実践シリーズ「**[Pythonで学ぶ画像認識](https://book.impress.co.jp/books/1122101074)**」で扱うソースコードやデータ、学習済みパラメータを管理しています。ソースコードはJupyterノートブックにまとめられており、Google Colabで実行されることを想定しています。ソースコードの解説は書籍内に記載されており、本リポジトリのソースコードは補助教材となっています。
 
 ## 書籍の内容
 
